@@ -17,14 +17,19 @@
 		data() {
 			return {
 				post: {
+					id: Date.now(),
 					title: '',
 				},
 			};
 		},
 		methods: {
 			createPost() {
-				
 				this.inputValueTitle = '';
+				this.$emit('create', this.post);
+				this.post = {
+					id: '',
+					title: '',
+				};
 			},
 		},
 	};
